@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Стоматология Гаро</title>
+<style>
+:root{
+  --bg:#f7fbff; --card:#fff; --primary:#05668d; --accent:#028090;
+  --muted:#5f7580; --radius:12px; --maxw:1100px; --gap:16px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:#04282b}
+.container{max-width:var(--maxw);margin:0 auto;padding:20px}
+.header{background:linear-gradient(90deg,var(--primary),var(--accent));color:white;padding:16px;border-radius:14px;display:flex;gap:14px;align-items:center}
+.logo{display:flex;gap:12px;align-items:center}
+.logo-mark{width:52px;height:52px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:800}
+.site-title{font-size:18px;font-weight:700}
+.nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:700}
+.nav a.active{box-shadow:inset 0 -3px 0 rgba(255,255,255,0.12)}
+.hero{display:grid;grid-template-columns:1fr 340px;gap:18px;margin-top:18px;align-items:start}
+.card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(8,20,24,0.06)}
+.hero-left h1{margin:0 0 10px 0;font-size:28px;color:#052a33}
+.lead{color:var(--muted);line-height:1.5}
+.cta{margin-top:12px;display:flex;gap:10px}
+.btn{background:var(--primary);color:white;padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+.btn.ghost{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.service{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(2,128,144,0.03), rgba(5,102,141,0.01))}
+.section{margin-top:18px}
+.prices table{width:100%;border-collapse:collapse}
+.prices th, .prices td{padding:10px;border-bottom:1px solid #eef6f8;text-align:left}
+.prices th{color:var(--muted);font-weight:700}
+.team{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.team .member{flex:1 1 220px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form input,.form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6f0f2}
+.small{font-size:13px;color:var(--muted)}
+.footer{margin-top:26px;padding:14px;border-radius:10px;text-align:center;color:var(--muted)}
+.edit-bar{position:fixed;right:14px;bottom:14px;display:flex;gap:8px;z-index:999}
+.edit-btn{background:#ffb703;padding:9px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+.save-btn{background:#1982c4;color:white;padding:9px 12px;border-radius:10px;cursor:pointer;display:none}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .nav{justify-content:center;width:100%}
+}
+[contenteditable="true"]{outline:2px dashed rgba(4,40,43,0.12);padding:2px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header" role="banner">
+    <div class="logo" aria-hidden>
+      <div class="logo-mark">Г</div>
+      <div>
+        <div class="site-title" data-editable data-key="clinic_name">Стоматология Гаро</div>
+        <div class="small" data-editable data-key="clinic_tag">Современная забота о вашей улыбке</div>
+      </div>
+    </div>
+    <nav class="nav" role="navigation">
+      <a href="#/" data-link>Главная</a>
+      <a href="#/services" data-link>Услуги / Цены</a>
+      <a href="#/about" data-link>О нас</a>
+      <a href="#/reviews" data-link>Отзывы</a>
+      <a href="#/contacts" data-link>Контакты</a>
+    </nav>
+  </header>
+
+  <main id="app">
+    <!-- Главная -->
+    <section id="page-home" class="section" data-page>
+      <div class="hero">
+        <div class="card hero-left">
+          <h1 data-editable data-key="hero_title">Улыбка — наша миссия</h1>
+          <p class="lead" data-editable data-key="hero_lead">В "Стоматологии Гаро" мы используем современные методики, надежные материалы и индивидуальный подход к каждому пациенту.</p>
+          <div class="cta">
+            <a class="btn" href="#/contacts">Записаться</a>
+            <a class="btn ghost" href="#/services">Посмотреть цены</a>
+          </div>
+          <div class="section">
+            <h3>Наши услуги</h3>
+            <div class="services-grid">
+              <div class="service">
+                <h4 data-editable data-key="s1_name">Терапевтическая стоматология</h4>
+                <div class="small" data-editable data-key="s1_desc">Лечение кариеса, реставрация и пломбирование.</div>
+              </div>
+              <div class="service">
+                <h4 data-editable data-key="s2_name">Имплантация</h4>
+                <div class="small" data-editable data-key="s2_desc">Надежные импланты и протезирование.</div>
+              </div>
+              <div class="service">
+                <h4 data-editable data-key="s3_name">Ортопедия</h4>
+                <div class="small" data-editable data-key="s3_desc">Коронки, мосты, съемное протезирование.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card" style="padding:18px">
+          <h3 data-editable data-key="aside_title">Специальное предложение</h3>
+          <p class="small" data-editable data-key="aside_text">Первичный осмотр и консультация — бесплатно при записи через сайт.</p>
+          <div style="margin-top:10px"><a class="btn" href="#/contacts">Записаться</a></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="page-services" class="section" data-page hidden>
+      <div class="card prices">
+        <h2 data-editable data-key="prices_title">Услуги и цены</h2>
+        <p class="small" data-editable data-key="prices_intro">Ориентировочные цены — точную стоимость определит врач после осмотра.</p>
+        <table aria-label="Цены">
+          <thead><tr><th>Услуга</th><th>Описание</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td data-editable data-key="p1_name">Пломбирование</td><td data-editable data-key="p1_desc">Композитная реставрация</td><td data-editable data-key="p1_price">2 500 ₽</td></tr>
+            <tr><td data-editable data-key="p2_name">Профгигиена</td><td data-editable data-key="p2_desc">AirFlow, полировка</td><td data-editable data-key="p2_price">3 500 ₽</td></tr>
+            <tr><td data-editable data-key="p3_name">Имплантация</td><td data-editable data-key="p3_desc">Имплант + коронка</td><td data-editable data-key="p3_price">45 000 ₽</td></tr>
+            <tr><td data-editable data-key="p4_name">Коронка</td><td data-editable data-key="p4_desc">Керамическая коронка</td><td data-editable data-key="p4_price">18 000 ₽</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="page-about" class="section" data-page hidden>
+      <div class="card">
+        <h2 data-editable data-key="about_title">О клинике</h2>
+        <p data-editable data-key="about_lead">"Стоматология Гаро" — семейная клиника с дружелюбной командой и современным оборудованием.</p>
+        <h3>Наша команда</h3>
+        <div class="team">
+          <div class="member card">
+            <strong data-editable data-key="doc1_name">Гаро Иванов</strong>
+            <div class="small" data-editable data-key="doc1_spec">Главный врач, ортопед</div>
+            <div class="small" data-editable data-key="doc1_bio">Опыт 12 лет, специализация — имплантация и протезирование.</div>
+          </div>
+          <div class="member card">
+            <strong data-editable data-key="doc2_name">Анна Петрова</strong>
+            <div class="small" data-editable data-key="doc2_spec">Терапевт</div>
+            <div class="small" data-editable data-key="doc2_bio">Профессиональный подход к лечению взрослых и детей.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="page-reviews" class="section" data-page hidden>
+      <div class="card">
+        <h2 data-editable data-key="reviews_title">Отзывы пациентов</h2>
+        <div id="reviewsList" style="margin-top:12px"></div>
+
+        <div style="margin-top:12px">
+          <h4>Оставить отзыв</h4>
+          <form id="reviewForm" class="form" onsubmit="return false;">
+            <div style="display:flex;gap:8px">
+              <input id="revName" placeholder="Имя" required>
+              <input id="revPhone" placeholder="Телефон">
+            </div>
+            <div style="margin-top:8px">
+              <textarea id="revText" placeholder="Отзыв" required></textarea>
+            </div>
+            <div style="margin-top:8px">
+              <button class="btn" id="revSend">Отправить</button>
+            </div>
+            <div class="small" style="margin-top:8px">Отзыв сохраняется локально в браузере (демо).</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="page-contacts" class="section" data-page hidden>
+      <div class="card">
+        <h2 data-editable data-key="contacts_title">Контакты и запись</h2>
+        <div class="contact-grid" style="margin-top:12px">
+          <div>
+            <div class="small"><strong>Адрес</strong></div>
+            <div data-editable data-key="addr">ул. Примерная, 12, г. Примеровск</div>
+            <div class="small" style="margin-top:8px"><strong>Телефон</strong></div>
+            <div data-editable data-key="phone">+7 (999) 123-45-67</div>
+            <div class="small" style="margin-top:8px"><strong>Время работы</strong></div>
+            <div data-editable data-key="worktime">Пн–Пт 09:00–20:00</div>
+          </div>
+          <div>
+            <form id="appointForm" class="form" onsubmit="return false;">
+              <input id="apName" placeholder="Имя" required>
+              <input id="apPhone" placeholder="Телефон" required style="margin-top:8px">
+              <input id="apService" placeholder="Услуга (например, Пломба)" style="margin-top:8px">
+              <textarea id="apNote" placeholder="Комментарий" style="margin-top:8px"></textarea>
+              <div style="margin-top:8px"><button class="btn" id="apSend">Отправить заявку</button></div>
+              <div class="small" style="margin-top:8px">Форма демонстрационная — можно подключить отправку почтой (Formspree / Netlify Forms).</div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card small" style="margin-top:12px">
+          <strong>Карта</strong>
+          <div data-editable data-key="map_embed" style="margin-top:6px">[Вставь iframe Google Maps или Яндекс.Карты сюда]</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer small" role="contentinfo">
+    <div data-editable data-key="footer_text">© Стоматология Гаро — Адрес: ул. Примерная, 12 • Тел: +7 (999) 123-45-67</div>
+  </footer>
+</div>
+
+<!-- Edit bar -->
+<div class="edit-bar" aria-hidden>
+  <button id="toggleEdit" class="edit-btn">Редактировать</button>
+  <button id="saveEdits" class="save-btn">Сохранить</button>
+  <button id="downloadHTML" class="edit-btn" title="Скачать текущую страницу как index.html">Скачать .html</button>
+</div>
+
+<script>
+/* SPA nav, edit mode, localStorage saving, basic forms */
+(() => {
+  // simple SPA routing by hash
+  const pages = document.querySelectorAll('[data-page]');
+  const links = document.querySelectorAll('[data-link]');
+  function showRoute() {
+    const hash = location.hash || '#/';
+    pages.forEach(p => p.hidden = true);
+    if(hash === '#/' || hash === '' ) document.getElementById('page-home').hidden = false;
+    else if(hash.startsWith('#/services')) document.getElementById('page-services').hidden = false;
+    else if(hash.startsWith('#/about')) document.getElementById('page-about').hidden = false;
+    else if(hash.startsWith('#/reviews')) document.getElementById('page-reviews').hidden = false;
+    else if(hash.startsWith('#/contacts')) document.getElementById('page-contacts').hidden = false;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
+  }
+  window.addEventListener('hashchange', showRoute);
+  showRoute();
+
+  // editable fields
+  const EDIT_KEY_PREFIX = 'stom_garo::';
+  const EDITABLE = document.querySelectorAll('[data-editable]');
+  function storageKey(k){ return EDIT_KEY_PREFIX + (k || 'unknown'); }
+
+  // load saved
+  EDITABLE.forEach(el=>{
+    const k = el.dataset.key;
+    try{
+      const v = localStorage.getItem(storageKey(k));
+      if(v !== null) el.innerHTML = v;
+    }catch(e){}
+  });
+
+  // edit mode toggle
+  const toggle = document.getElementById('toggleEdit');
+  const saveBtn = document.getElementById('saveEdits');
+  const downloadBtn = document.getElementById('downloadHTML');
+  let editing = false;
+  function setEdit(on){
+    editing = on;
+    EDITABLE.forEach(el => el.contentEditable = on ? "true" : "false");
+    saveBtn.style.display = on ? "inline-block" : "none";
+    toggle.textContent = on ? 'Выйти' : 'Редактировать';
+    if(on) alert('Редактирование включено. После правок нажми "Сохранить".');
+  }
+  toggle.addEventListener('click', ()=>{
+    setEdit(!editing);
+  });
+  saveBtn.addEventListener('click', ()=>{
+    EDITABLE.forEach(el=>{
+      const k = el.dataset.key;
+      localStorage.setItem(storageKey(k), el.innerHTML);
+    });
+    alert('Сохранено в браузере (localStorage).');
+    setEdit(false);
+  });
+
+  // Ctrl/Cmd+S to save
+  window.addEventListener('keydown', e=>{
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's'){
+      e.preventDefault();
+      saveBtn.click();
+    }
+  });
+
+  // Reviews: save and show
+  const revListKey = 'stom_garo_reviews';
+  function loadReviews(){
+    const arr = JSON.parse(localStorage.getItem(revListKey) || '[]');
+    const container = document.getElementById('reviewsList');
+    container.innerHTML = '';
+    arr.forEach(r=>{
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.style.marginTop='8px';
+      el.innerHTML = `<strong>${escapeHtml(r.name)}</strong><div class="small">${escapeHtml(r.text)}</div><div class="small">— ${r.date}</div>`;
+      container.appendChild(el);
+    });
+  }
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+  loadReviews();
+  document.getElementById('revSend').addEventListener('click', ()=>{
+    const name = document.getElementById('revName').value.trim() || 'Аноним';
+    const text = document.getElementById('revText').value.trim();
+    if(!text){ alert('Напиши текст отзыва'); return; }
+    const arr = JSON.parse(localStorage.getItem(revListKey) || '[]');
+    arr.unshift({name, text, date: (new Date()).getFullYear()});
+    localStorage.setItem(revListKey, JSON.stringify(arr));
+    document.getElementById('revName').value=''; document.getElementById('revText').value='';
+    loadReviews();
+    alert('Спасибо — отзыв сохранён локально.');
+  });
+
+  // Appointment demo
+  document.getElementById('apSend').addEventListener('click', ()=>{
+    const n = document.getElementById('apName').value.trim();
+    const p = document.getElementById('apPhone').value.trim();
+    if(!n || !p){ alert('Укажи имя и телефон'); return; }
+    alert('Заявка отправлена (демо). Ты можешь настроить реальную отправку через Formspree/Netlify.');
+    document.getElementById('apName').value=''; document.getElementById('apPhone').value=''; document.getElementById('apService').value=''; document.getElementById('apNote').value='';
+  });
+
+  // Download current DOM as index.html (client-side)
+  downloadBtn.addEventListener('click', ()=>{
+    const doctype = '<!doctype html>\\n';
+    const html = doctype + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'index.html'; document.body.appendChild(a); a.click();
+    a.remove(); URL.revokeObjectURL(url);
+  });
+
+  // expose save function (optional)
+  window.stomGaro_saveAll = function(){
+    EDITABLE.forEach(el=>{
+      const k = el.dataset.key;
+      localStorage.setItem(storageKey(k), el.innerHTML);
+    });
+  };
+
+  // accessibility: set initial focusable link
+  document.querySelectorAll('[data-link]')[0].setAttribute('tabindex','0');
+})();
+</script>
+</body>
+</html>
